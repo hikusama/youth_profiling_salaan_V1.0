@@ -14,6 +14,7 @@ class AuthController extends Controller
         $fields = $request->validate([
             'name' => 'required|max:100',
             'email' => 'required|email|unique:users',
+            'role' => 'required|max:15',
             'password' => 'required|confirmed',
         ]);
 
@@ -53,6 +54,8 @@ class AuthController extends Controller
             'token' => $token->plainTextToken,
         ];
     }
+
+    
     public function logout(Request $request)
     {
 
